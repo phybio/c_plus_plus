@@ -3,9 +3,9 @@ using namespace std;
 class Base1
 {
 public:
-	Base1() {};
-	virtual ~Base1() {};
-	virtual void speakClearly() {};
+	Base1() { cout << "Base1()" << endl; };
+	virtual ~Base1() { cout << "~Base1()" << endl; };
+	virtual void speakClearly() { cout << "speakClearly()" << endl; };
 	virtual Base1 *clone() const {};
 protected:
 	float data_Base1;
@@ -14,9 +14,9 @@ protected:
 class Base2
 {
 public:
-	Base2() {};
-	virtual ~Base2() {};
-	virtual void mumble() {};
+	Base2() { cout << "Base2()" << endl; };
+	virtual ~Base2() { cout << "~Base2()" << endl; };
+	virtual void mumble() { cout << "mumble()" << endl; };
 	virtual Base2 *clone() const {};
 protected:
 	float data_Base2;
@@ -25,8 +25,8 @@ protected:
 class Derived : public Base1, public Base2
 {
 public:
-	Derived() {};
-	virtual ~Derived() {};
+	Derived() { cout << "Derived()" << endl; };
+	virtual ~Derived() { cout << "~Derived()" << endl; };
 	virtual Derived *clone() const {};
 protected:
 	float data_Derived;
@@ -35,7 +35,10 @@ protected:
 int main(int argc, char *argv[])
 {
 	Base2 *ptr = new Derived;
+//	ptr->speakClearly();
+	ptr->mumble();
 	delete ptr;
+	ptr = NULL;
 	cout << "Hello world!" << endl;
 	return 0;
 }
