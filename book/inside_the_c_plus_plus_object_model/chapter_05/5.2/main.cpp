@@ -4,8 +4,8 @@ class Point
 {
 public:
 	Point(float x = 0.0, float y = 0.0) {};
-	Point(const Point&);
-	Point& operator=(const Point&);
+	Point(const Point&) {};
+	Point& operator=(const Point&) {};
 
 	virtual ~Point() {};
 	virtual float z() { return 0.0; }
@@ -18,7 +18,7 @@ class Line
 	Point _begin, _end;
 public:
 	Line(float = 0.0, float = 0.0, float = 0.0, float = 0.0) {};
-	Line(const Point&, const Point&);
+	Line(const Point&, const Point&) {};
 
 	void draw();
 };
@@ -26,6 +26,8 @@ public:
 int main(int argc, char *argv[])
 {
 	Line a;
+	Line b = a;
+	a = b;
 	cout << "Hello world!" << endl;
 	return 0;
 }
